@@ -7,12 +7,12 @@ const fontColor=()=>{
   const textcolor=(colorName)=>{
     actions.current.style.color=colorName
   }
-  const [iputTextcolor,setTColor]=useState()
+  
 
   const bgcolor=(colorName)=>{
     actions.current.style.backgroundColor = colorName;
   }
-  const [iputBgcolor,setBgColor]=useState()
+ 
 
 const fontFamils=(fontfamils)=>{
   actions.current.style.fontFamily=fontfamils
@@ -26,6 +26,10 @@ const setImg = (images) => {
     actions.current.style.backgroundRepeat = "no-repeat"; 
   
 };
+
+const [fontSize, setFontSize] = useState(11);
+const [fontWeight,setFontWeight]=useState(150);
+
 
 const downloadImage = () => {
   if (actions.current) {
@@ -45,6 +49,29 @@ const downloadImage = () => {
         <div className="box-btn">
           <h1 id="input-box" ref={actions} contentEditable="true" autoFocus>Write Caption....</h1>
           <button className="d-btn" onClick={downloadImage}>Dowlod</button>
+          <label>Font Size</label>
+          <input
+              type="range"
+              min="5"
+              max="60"
+              value={fontSize}
+              onChange={(e) => {
+                setFontSize(e.target.value);
+                actions.current.style.fontSize = `${e.target.value}px`;
+              }}
+            />
+            <label>Font weight</label>
+            <input 
+                type="range"
+                min="100"
+                max="900"
+                step="100"
+                value={fontWeight}
+                onChange={(e) => {
+                  setFontWeight(e.target.value);
+                  actions.current.style.fontWeight = e.target.value; 
+                }}
+              />
         </div>
         <div className="color-set">
           <div className="t-g-colors">
@@ -57,7 +84,6 @@ const downloadImage = () => {
             <input id="input-color"
              type="color"
              onChange={(event)=>{(event.target.value)
-             setTColor(event.target.value)
              textcolor(event.target.value)
              }}
              ></input>
@@ -73,7 +99,6 @@ const downloadImage = () => {
             <input id="input-color" 
             type="color"
             onChange={(event)=>{(event.target.value)
-              setBgColor(event.target.value)
               bgcolor(event.target.value)
             }}
             />
