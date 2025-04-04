@@ -44,11 +44,18 @@ const downloadImage = () => {
 };
   return(
     <>
+      <nav className="nav">
       <h1 id="heading">DesignBlend</h1>
+      </nav>
       <div className="parent">
         <div className="box-btn">
-          <h1 id="input-box" ref={actions} contentEditable="true" autoFocus>Write Caption....</h1>
-          <button className="d-btn" onClick={downloadImage}>Dowlod</button>
+          <h1 id="input-box" ref={actions} contentEditable="true" 
+          >Write Caption...</h1>
+          <div className="dd-btn">
+          <button className="d-btn" onClick={downloadImage}>Downlod</button>
+          <button className="d-btn" onClick={()=>window.location="/"}>Reset</button>
+          </div>
+          <div className="range">
           <label>Font Size</label>
           <input
               type="range"
@@ -72,6 +79,7 @@ const downloadImage = () => {
                   actions.current.style.fontWeight = e.target.value; 
                 }}
               />
+              </div>
         </div>
         <div className="color-set">
           <div className="t-g-colors">
@@ -80,7 +88,11 @@ const downloadImage = () => {
             <button id="red" onClick={()=>{textcolor('red')}}></button>
             <button id="green" onClick={()=>{textcolor('green')}}></button>
             <button id="blue" onClick={()=>{textcolor('blue')}}></button>
-            <button id="yellow" onClick={()=>{textcolor('yellow')}}></button>
+            <button id="yellow" onClick={()=>{textcolor('pink')}}></button>
+            <button id="pink" onClick={()=>{textcolor('red')}}></button>
+            <button id="Lavender" onClick={()=>{textcolor('Lavender')}}></button>
+            <button id="orangered" onClick={()=>{textcolor('rgb(225, 103, 59)')}}></button>
+            <button id="orchid" onClick={()=>{bgcolor('orchid')}}></button>
             <input id="input-color"
              type="color"
              onChange={(event)=>{(event.target.value)
@@ -96,6 +108,10 @@ const downloadImage = () => {
             <button id="green" onClick={()=>{bgcolor('green')}}></button>
             <button id="blue" onClick={()=>{bgcolor('blue')}}></button>
             <button id="yellow" onClick={()=>{bgcolor('yellow')}}></button>
+            <button id="pink" onClick={()=>{bgcolor('pink')}}></button>
+            <button id="Lavender" onClick={()=>{bgcolor('Lavender')}}></button>
+            <button id="orangered" onClick={()=>{bgcolor('orangered')}}></button>
+            <button id="orchid" onClick={()=>{bgcolor('orchid')}}></button>
             <input id="input-color" 
             type="color"
             onChange={(event)=>{(event.target.value)
@@ -151,17 +167,7 @@ const downloadImage = () => {
               src="/nature5.jpg" width="50px"
               alt="no-img"
               onClick={() => setImg("/nature5.jpg")} /></span>
-              <span>
-                <img id="img-val"
-                 src="/anilClassic.jpg" width="50px"
-              alt="no-img"
-              onClick={() => setImg("/anilClassic.jpg")} /></span>
-              <span>
-                <img id="img-val"
-                src="/anil.jpg" width="50px"
-              alt="no-img"
-              onClick={() => setImg("/anil.jpg")} /></span>
-          
+              
           </div>
           </div>
         </div>
